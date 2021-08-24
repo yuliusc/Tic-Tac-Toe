@@ -1,0 +1,39 @@
+.table{
+    grid-template-columns: 15vw 15vw 15vw;
+    position: relative;
+    display: none;
+}
+
+.cell{
+    text-align: center;
+    height: 15vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#c5{
+    border: 2px solid;
+}
+
+#c2, #c8{
+    border-left: 2px solid;
+    border-right: 2px solid;
+}
+
+#c4, #c6{
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+
+#skres{
+    position: absolute;
+    color: red;
+    background-color: pink;
+    width: 45vw;
+    height: 15px;
+    display: none;
+}
+
+@keyframes line-anim {
+
+}
