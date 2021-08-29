@@ -1,3 +1,10 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 .table{
     grid-template-columns: 150px 150px 150px;
     position: relative;
@@ -32,6 +39,31 @@
     width: 250px;
     height: 15px;
     display: none;
+}
+
+.checkPlayer-cont{
+    border: 2px solid;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+.checkPlayer{
+    height: 4rem;
+    width: 4rem;
+    border: none;
+}
+.checkPlayer-cont-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.checkPlayer1
+{
+background-color: #53a292;
+}
+
+.checkPlayer2{
+    background-color: #bf3434;
 }
 
 @keyframes line-anim {
