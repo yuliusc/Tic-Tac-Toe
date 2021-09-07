@@ -3,6 +3,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: #444444;
 }
 
 .table{
@@ -36,15 +37,16 @@ body{
     position: absolute;
     color: red;
     background-color: pink;
-    width: 250px;
-    height: 15px;
     display: none;
+    width: 0;
+    border-radius: 2rem;
 }
 
 .checkPlayer-cont{
     border: 2px solid;
     padding: 2rem;
     font-size: 2rem;
+    background-color: #dfdfdf
 }
 
 .checkPlayer{
@@ -59,13 +61,36 @@ body{
 
 .checkPlayer1
 {
-background-color: #53a292;
+    background-color: #53a292;
 }
 
 .checkPlayer2{
     background-color: #bf3434;
 }
 
-@keyframes line-anim {
-
+.playMore{
+    display: none;
+    position: absolute;
+    background: rgb(0 0 0);
+    padding: 2rem;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    opacity: 0;
 }
+
+.playMore__butt{
+    padding: 1rem 2rem;
+    border: none;
+    margin-right: 2rem;
+    box-shadow: 0px 0px 0px 0px #95c3d5;
+    transition: box-shadow 0.5s ease-out;
+}
+
+.playMore__butt:hover {
+    box-shadow: 6px 6px 0px 0px #95c3d5;
+}
+
+
