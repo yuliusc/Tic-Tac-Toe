@@ -2,6 +2,9 @@ let cells = document.getElementsByClassName('cell');
 cells = [...cells];
 let points;
 let player, opponent, playerSign, compSign, lastingGame = 1, movesMatrix = [], clickNum = 0, canMove = 0;
+let plColor;
+let compColor;
+let pointsComp, pointsPlayer;
 
 function wy() {
     cells.forEach((v) => {
@@ -12,25 +15,36 @@ function wy() {
 function checkPlayer(x) {
     player = x;
     if (player === 1) {
-        opponent = 2
-    } else
+        {
+            opponent = 2;
+            plColor = "#92cbd8"
+            compColor = "#da7878"
+        }
+    } else {
         opponent = 1
+        plColor = "#da7878"
+        compColor = "#92cbd8"
+    }
     document.getElementsByClassName('checkPlayer-cont')[0].style.display = 'none';
     document.getElementsByClassName('table')[0].style.display = 'grid';
     startGame();
 }
 
 function startGame() {
+
+    document.getElementsByClassName('checkPlayer-cont')[0].style.display = 'none';
+    document.getElementsByClassName('table')[0].style.display = 'grid';
+    document.getElementById('skres').style.display = 'none';
+    document.getElementsByClassName('table')[0].style.pointerEvents = 'auto'
+
+    for (let i =0; i<movesMatrix.length;i++){
+        let temp = 'c' + (i + 1);
+        // document.getElementById(temp).innerText = compSign;
+        document.getElementById(temp).style.background = 'white';
+    }
     points = 0;
     movesMatrix = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-    // if (player === 1) {
-    //     playerSign = 'x';
-    //     compSign = 'o'
-    // } else {
-    //     playerSign = 'o';
-    //     compSign = 'x'
-    // }
     let rand = Math.floor(Math.random() * (2)) + 1
 
     if (rand === player)
@@ -38,6 +52,15 @@ function startGame() {
 
     else
         computersMove()
+
+    console.log(rand)
+    console.log(canMove)
+}
+
+function endRound(){
+    document.getElementsByClassName('checkPlayer-cont')[0].style.display = 'block';
+    document.getElementsByClassName('table')[0].style.display = 'none';
+
 }
 
 function setStyle(top, left, hei, width) {
@@ -47,11 +70,13 @@ function setStyle(top, left, hei, width) {
     line.style.height = hei;
     line.style.width = width;
     line.style.left = left;
+    document.getElementById('skres').style.transform = 'rotate(0)';
 }
 
 function checkWin(pl) {
 
-    console.log(pl);
+    checkDraw(pl);
+
     if ((movesMatrix[0] === pl) && (movesMatrix[1] === pl) && (movesMatrix[2] === pl)) {
         setStyle('66px', 'inherit', '15px', '450px')
     }
@@ -79,14 +104,9 @@ function checkWin(pl) {
         setStyle('3px', '370px', '450px', '15px')
     }
 
-    if(pl == 1){
-        document.getElementById('skres').style.background = '#53a292';
-    }
-    else{
-        document.getElementById('skres').style.background = '#bf3434';
-    }
+    document.getElementById('skres').style.background = 'black';
 
-    if (document.getElementById('skres').style.width != 0) {
+    if (document.getElementById('skres').style.display != 'none') {
         win(pl);
         return 1
     } else {
@@ -95,9 +115,20 @@ function checkWin(pl) {
 }
 
 function win(winner) {
-
     console.log("Gratulacje, wygrał gracz", winner);
-    endGame();
+    endGame(winner);
+}
+
+function checkDraw(pl) {
+
+    let temp = 0;
+    for (let i = 0; i < movesMatrix.length; i++) {
+        if (movesMatrix[i] !== 0)
+            temp++;
+    }
+    if (temp == movesMatrix.length)
+        endGame('Draw')
+
 }
 
 function computersMove() {
@@ -117,49 +148,55 @@ function computersMove() {
                     zeros++;
 
                 if (movesMatrix[i] === 0 && zeros === rand) {
-                    movesMatrix[i] = 2;
+                    movesMatrix[i] = opponent;
                     let temp = 'c' + (i + 1);
                     // document.getElementById(temp).innerText = compSign;
-                    document.getElementById(temp).style.background = '#da7878'
+                    document.getElementById(temp).style.background = compColor;
                     break;
                 }
             }
-        checkWin(opponent);
-        canMove = 1;
-        }, 2000
-    )
-}
 
-window.setInterval(sign(), 100)
+
+            if (checkWin(opponent)) {
+                endGame();
+            } else {
+                canMove = 1;
+            }
+        }, 2
+    )
+
+
+}
 
 function sign() {
     if (canMove == 1) {
         let current = this;
         if (movesMatrix[parseInt((current.id).replace('c', '')) - 1] === 0) {
-            // if (player === 1)
-            //     current.innerText = playerSign;
-            // else
-            //     current.innerText = playerSign;
-
-            current.style.background = "#92cbd8";
-
-            movesMatrix[parseInt((current.id).replace('c', '')) - 1] = 1;
+            current.style.background = plColor;
+            movesMatrix[parseInt((current.id).replace('c', '')) - 1] = player;
             if (checkWin(player)) {
                 endGame();
             } else {
                 computersMove();
                 clickNum++;
             }
-        }
-        canMove = 0;
+            canMove = 1;
+        } else
+            return
     }
 }
 
-function endGame() {
-    console.log("Kończę grę, do widzenia");
+function endGame(value) {
+    if (value == 'Draw') {
+        console.log("remisik");
+    }
+    if (value == 1 || value == 2) {
+
+    }
+
     document.getElementsByClassName('table')[0].style.pointerEvents = 'none'
+
 }
 
 wy();
-console.log(playerSign)
-console.log(compSign)
+
