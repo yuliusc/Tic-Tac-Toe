@@ -3,12 +3,16 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background: url(../img/dots.jpg) repeat;
+    background-size: contain;
+    overflow-y: hidden;
 }
 
 .table{
     grid-template-columns: 150px 150px 150px;
     position: relative;
     display: none;
+    background: white;
 }
 
 .cell{
@@ -36,17 +40,23 @@ body{
     position: absolute;
     color: red;
     background-color: pink;
-    width: 250px;
-    height: 15px;
     display: none;
+    width: 0;
+    border-radius: 2rem;
 }
 
 .checkPlayer-cont{
-    border: 2px solid;
     padding: 2rem;
     font-size: 2rem;
+    background-color: white;
+    height: 300px;
+    width: 300px;
+    border-radius: 20rem;
+    /*box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.5);*/
 }
-
+.checkPlayer-cont h3{
+text-align: center;
+}
 .checkPlayer{
     height: 4rem;
     width: 4rem;
@@ -59,13 +69,70 @@ body{
 
 .checkPlayer1
 {
-background-color: #53a292;
+    background-color: #53a292;
 }
 
 .checkPlayer2{
     background-color: #bf3434;
 }
 
-@keyframes line-anim {
+.playMore{
+    display: none;
+    position: absolute;
+    background: rgb(0 0 0);
+    padding: 2rem;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    opacity: 0;
+}
+
+.playMore__butt{
+    padding: 1rem 2rem;
+    border: none;
+    margin-right: 2rem;
+    box-shadow: 0px 0px 0px 0px #95c3d5;
+    transition: box-shadow 0.5s ease-out;
+}
+
+.playMore__butt:hover {
+    box-shadow: 6px 6px 0px 0px #95c3d5;
+}
+
+.mainView .points
+{
+    display: none;
+    background: black;
+    padding: 1rem;
+    color: white;
+
+}
+
+.mainView .table
+{
+    margin: 0 2rem;
+}
+
+.mainView{
+    display: flex;
+    align-items: center;
+}
+
+#startAgain{
+    display: none;
+    background: black;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 200px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: box-shadow 0.5s ease-out;
+}
+
+#startAgain:hover{
+    box-shadow: 6px 6px 0px 0px #92cbd8;
 
 }

@@ -7,21 +7,40 @@
 </head>
 <body>
 
-<div class="table">
+<div class="mainView">
 
-    <div class="cell" id="c1"></div>
-    <div class="cell" id="c2"></div>
-    <div class="cell" id="c3"></div>
+    <div class="points">
 
-    <div class="cell" id="c4"></div>
-    <div class="cell" id="c5"></div>
-    <div class="cell" id="c6"></div>
+        <div class="">
+            <h2>Punkty gracza: <span id="points-player">0</span></h2>
+        </div>
 
-    <div class="cell" id="c7"></div>
-    <div class="cell" id="c8"></div>
-    <div class="cell" id="c9"></div>
+        <div class="">
+            <h2>Punkty komputera: <span id="points-computer">0</span></h2>
 
-    <div id="skres"></div>
+        </div>
+
+    </div>
+
+    <div class="table">
+
+        <div class="cell" id="c1"></div>
+        <div class="cell" id="c2"></div>
+        <div class="cell" id="c3"></div>
+
+        <div class="cell" id="c4"></div>
+        <div class="cell" id="c5"></div>
+        <div class="cell" id="c6"></div>
+
+        <div class="cell" id="c7"></div>
+        <div class="cell" id="c8"></div>
+        <div class="cell" id="c9"></div>
+
+        <div id="skres"></div>
+
+    </div>
+
+    <button id="startAgain" onclick="startGame()">Zacznij grę od nowa</button>
 
 </div>
 
@@ -32,6 +51,7 @@
         <button onclick="checkPlayer(2)" class="checkPlayer2 checkPlayer"></button>
     </div>
 </div>
+
 
 <script src="js/script.js" rel="script"></script>
 
