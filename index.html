@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link type="text/css" href="style/style.css" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Tic Tac Toe" />
+    <meta name="keywords" content="Tic Tac Toe" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link type="text/css" href="style/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="mainView">
+      <div class="points">
+        <div class="">
+          <h2>User points: <span id="points-player">0</span></h2>
+        </div>
 
-<div class="table">
+        <div class="">
+          <h2>Computer points: <span id="points-computer">0</span></h2>
+        </div>
+      </div>
 
-    <div class="cell" id="c1"></div>
-    <div class="cell" id="c2"></div>
-    <div class="cell" id="c3"></div>
+      <div class="table">
+        <div class="cell" id="c1"></div>
+        <div class="cell" id="c2"></div>
+        <div class="cell" id="c3"></div>
 
-    <div class="cell" id="c4"></div>
-    <div class="cell" id="c5"></div>
-    <div class="cell" id="c6"></div>
+        <div class="cell" id="c4"></div>
+        <div class="cell" id="c5"></div>
+        <div class="cell" id="c6"></div>
 
-    <div class="cell" id="c7"></div>
-    <div class="cell" id="c8"></div>
-    <div class="cell" id="c9"></div>
+        <div class="cell" id="c7"></div>
+        <div class="cell" id="c8"></div>
+        <div class="cell" id="c9"></div>
 
-    <div id="skres"></div>
+        <div id="skres"></div>
+      </div>
 
-</div>
-
-<div class="checkPlayer-cont">
-    <h3>Wybierz swój kolor</h3>
-    <div class="checkPlayer-cont-buttons">
-        <button onclick="checkPlayer(1)" class="checkPlayer1 checkPlayer"></button>
-        <button onclick="checkPlayer(2)" class="checkPlayer2 checkPlayer"></button>
+      <button id="startAgain" onclick="startGame()">Start again</button>
     </div>
-</div>
 
-<script src="js/script.js" rel="script"></script>
+    <div class="checkPlayer-cont">
+      <h3>Choose your color</h3>
+      <div class="checkPlayer-cont-buttons">
+        <button
+          onclick="checkPlayer(1)"
+          class="checkPlayer1 checkPlayer"
+        ></button>
+        <button
+          onclick="checkPlayer(2)"
+          class="checkPlayer2 checkPlayer"
+        ></button>
+      </div>
+    </div>
 
-</body>
+    <script src="js/script.js" rel="script"></script>
+  </body>
 </html>
